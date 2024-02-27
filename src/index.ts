@@ -3,6 +3,11 @@ import cors from 'cors';
 import 'dotenv/config';
 import 'colors';
 import morgan from 'morgan';
+import mongoose from 'mongoose';
+
+mongoose
+  .connect(process.env.MONGODB_CONNECTION_STRING as string)
+  .then(() => console.log(`Connected to database!`.magenta.underline.bold));
 
 const PORT = process.env.PORT;
 
