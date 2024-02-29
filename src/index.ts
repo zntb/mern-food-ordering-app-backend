@@ -4,6 +4,7 @@ import 'dotenv/config';
 import 'colors';
 import morgan from 'morgan';
 import mongoose from 'mongoose';
+import myUserRoute from './routes/myUserRoute';
 
 mongoose
   .connect(process.env.MONGODB_CONNECTION_STRING as string)
@@ -21,10 +22,8 @@ if (process.env.NODE_ENV === 'development') {
 
 app.use(express.json());
 
-app.get('/test', async (req: Request, res: Response) => {
-  res.json({ message: 'Hello!' });
-});
+app.use('/api/my/user', myUserRoute);
 
-app.listen(5000, () => {
+app.listen(PORT, () => {
   console.log(`Server started on PORT ${PORT}`.cyan.underline);
 });
