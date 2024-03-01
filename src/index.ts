@@ -4,6 +4,7 @@ import 'dotenv/config';
 import 'colors';
 import morgan from 'morgan';
 import mongoose from 'mongoose';
+import { v2 as cloudinary } from 'cloudinary';
 import myUserRoute from './routes/myUserRoute';
 
 mongoose
@@ -11,6 +12,12 @@ mongoose
   .then(() => console.log(`Connected to database!`.magenta.underline.bold));
 
 const PORT = process.env.PORT;
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 const app = express();
 
