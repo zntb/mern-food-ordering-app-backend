@@ -17,6 +17,7 @@ const upload = multer({
 // /api/my/restaurant
 router
   .route('/')
+  .get(jwtCheck, jwtParse, myRestaurantController.getMyRestaurant)
   .post(
     upload.single('imageFile'),
     validateMyRestaurantRequest,
