@@ -24,6 +24,13 @@ router
     jwtCheck,
     jwtParse,
     myRestaurantController.createMyRestaurant
+  )
+  .put(
+    upload.single('imageFile'),
+    validateMyRestaurantRequest,
+    jwtCheck,
+    jwtParse,
+    myRestaurantController.updateMyRestaurant
   );
 
 export default router;
