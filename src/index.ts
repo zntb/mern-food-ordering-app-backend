@@ -30,6 +30,8 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
+app.use('/api/order/checkout/webhook', express.raw({ type: '*/*' }));
+
 app.use(express.json());
 
 app.get('/health', async (req: Request, res: Response) => {
