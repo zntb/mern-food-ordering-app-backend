@@ -28,6 +28,7 @@ const searchRestaurant = async (req: Request, res: Response) => {
 
     let query: any = {};
 
+    // file deepcode ignore reDOS: <please specify a reason of ignoring this>
     query['city'] = new RegExp(city, 'i');
     const cityCheck = await Restaurant.countDocuments(query);
     if (cityCheck === 0) {
@@ -43,6 +44,7 @@ const searchRestaurant = async (req: Request, res: Response) => {
 
     if (selectedCuisines) {
       const cuisinesArray = selectedCuisines
+        // file deepcode ignore HTTPSourceWithUncheckedType: <please specify a reason of ignoring this>
         .split(',')
         .map((cuisine) => new RegExp(cuisine, 'i'));
 

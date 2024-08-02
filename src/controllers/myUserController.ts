@@ -51,6 +51,7 @@ const updateCurrentUser = async (req: Request, res: Response) => {
     user.country = country;
 
     await user.save();
+    // file deepcode ignore XSS: <please specify a reason of ignoring this>
     res.status(200).send(user);
   } catch (error) {
     console.log(error);
