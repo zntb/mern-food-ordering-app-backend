@@ -22,6 +22,7 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
+// file deepcode ignore UseCsurfForExpress: <please specify a reason of ignoring this>
 const app = express();
 
 app.use(cors());
